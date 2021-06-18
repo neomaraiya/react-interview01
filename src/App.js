@@ -1,7 +1,8 @@
-import React from "react";
-import axios from "axios";
-import { useState, useRef, useEffect } from "react";
-import "./style.css";
+import React from 'react';
+import axios from 'axios';
+import { useState, useRef, useEffect } from 'react';
+import './style.css';
+import { Child } from './Child';
 
 export default function App() {
   const firstName = useRef();
@@ -11,14 +12,14 @@ export default function App() {
   const [loading, setLoader] = useState();
 
   const onKeyDown = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       button.current.focus();
     }
   };
 
   const onCallAPI = () => {
     setLoader(true);
-    axios.get("https://random-data-api.com/api/users/random_user").then(res => {
+    axios.get('https://random-data-api.com/api/users/random_user').then(res => {
       setData(res.data);
       setLoader(false);
     });
@@ -30,6 +31,7 @@ export default function App() {
 
   return (
     <div>
+      <Child number={input} />
       {loading && <h2>Loading...</h2>}
       <input
         type="text"
