@@ -26,7 +26,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    firstName.current.focus();
+    // firstName.current.focus();
   }, []);
 
   return (
